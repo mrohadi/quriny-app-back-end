@@ -85,6 +85,7 @@ app.post("/signup", (req, res) => {
     handle: req.body.handle,
   };
 
+  // Check if there is an error
   let errors = {};
   if (isEmpy(newUser.email)) {
     errors.email = "Must not be empty";
@@ -136,6 +137,41 @@ app.post("/signup", (req, res) => {
       } else {
         return res.status(500).json({ error: err.code });
       }
+    });
+});
+
+// Route login
+app.post("/login", (req, res) => {
+  const user = {
+    email: req.body.email,
+    password: req.body.password,
+  };
+
+  // Check if there is an error
+  let errors = {};
+
+  if (isEmpy(user.email)) errors.email = "Must not be empty";
+  if (isEmpy(user.password)) errors.password = "Must not be empty";
+
+  if (Object.keys(errors).length > 0) return res.status(400).json(errors);
+
+  // If there is no an error, then login
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(user.email, user.password)
+    .then((data) => {
+      return data.user.getIdToken();
+    })
+    .then((token) => {
+      return res.json({ token: token });
+    })
+    .catch((err) => {
+      console.error(err);
+      if (err.code === "auth/wrong-password") {
+        return res
+          .status(403)
+          .json({ general: "Wrong credentials, plese try again!" });
+      } else return res.status(500).json({ error: err.code });
     });
 });
 
