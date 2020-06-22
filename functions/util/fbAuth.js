@@ -1,5 +1,6 @@
 const { admin, db } = require("./admin");
 
+// Middleware Authentication
 module.exports = (req, res, next) => {
   let idToken;
   if (
@@ -8,15 +9,15 @@ module.exports = (req, res, next) => {
   ) {
     idToken = req.headers.authorization.split("Bearer ")[1];
   } else {
-    console.error("No token found");
+    console.error("No token found!");
     return res.status(403).json({ error: "Unauthorized" });
   }
 
   admin
     .auth()
     .verifyIdToken(idToken)
-    .then((decodedToken) => {
-      req.user = decodedToken;
+    .then((decodeToken) => {
+      req.user = decodeToken;
       return db
         .collection("users")
         .where("userId", "==", req.user.uid)
