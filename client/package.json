@@ -1,5 +1,6 @@
 {
   "name": "client",
+  "proxy": "https://asia-east2-social-media-app-33923.cloudfunctions.net/api",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -38,6 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "https://asia-east2-social-media-app-33923.cloudfunctions.net/api"
+  }
 }
