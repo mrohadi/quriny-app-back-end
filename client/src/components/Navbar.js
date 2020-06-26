@@ -7,11 +7,11 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 // MUI Icon Stuff
-import AddIcon from "@material-ui/icons/Add";
 import HomeIcon from "@material-ui/icons/Home";
 import Notifications from "@material-ui/icons/Notifications";
 // Utility
 import MyButton from "../util/MyButton";
+import PostScream from "./PostScream";
 
 export class Navbar extends Component {
   render() {
@@ -23,9 +23,7 @@ export class Navbar extends Component {
           <Toolbar className="nav-container">
             {authenticated ? (
               <Fragment>
-                <MyButton tipTitle="Post a Scream!">
-                  <AddIcon />
-                </MyButton>
+                <PostScream />
                 <Link to="/">
                   <MyButton tipTitle="Home">
                     <HomeIcon />

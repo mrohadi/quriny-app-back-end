@@ -3,6 +3,8 @@ import {
   SET_SCREAMS,
   LIKE_SCREAM,
   UNLIKE_SCREAM,
+  DELETE_SCREAM,
+  POST_SCREAM,
 } from "../types";
 
 const initialState = {
@@ -35,6 +37,26 @@ export default function (state = initialState, action) {
       //   }
       return {
         ...state,
+      };
+    case DELETE_SCREAM:
+      return {
+        ...state,
+        screams: state.screams.filter(
+          (scream) => scream.screamId !== action.payload
+        ),
+      };
+    // case DELETE_SCREAM:
+    //   index = state.screams.findIndex(
+    //     (scream) => scream.screamId === action.payload
+    //   );
+    //   state.screams.splice(index, 1);
+    //   return {
+    //     ...state,
+    //   };
+    case POST_SCREAM:
+      return {
+        ...state,
+        screams: [action.payload, ...state.screams],
       };
     default:
       return state;

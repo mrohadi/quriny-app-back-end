@@ -1,12 +1,19 @@
 export default {
   palette: {
     primary: {
+      light: "#757ce8",
       main: "#9ccc65",
+      dark: "#002884",
+      contrastText: "#fff",
     },
     secondary: {
-      main: "#ccff90",
+      light: "#ff6333",
+      main: "#ff3d00",
+      dark: "#b22a00",
+      contrastText: "#000",
     },
   },
+
   // the object to be spread
   spreadThis: {
     typography: {
