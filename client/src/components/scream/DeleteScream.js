@@ -10,9 +10,9 @@ import DialogActions from "@material-ui/core/DialogActions";
 // MUI Icon Stuff
 import DeleteOutline from "@material-ui/icons/DeleteOutline";
 // Utilities
-import MyButton from "../util/MyButton";
+import MyButton from "../../util/MyButton";
 // Redux
-import { deleteScream } from "../redux/actions/dataAction";
+import { deleteScream } from "../../redux/actions/dataAction";
 
 const styles = (theme) => ({
   ...theme.spreadThis,

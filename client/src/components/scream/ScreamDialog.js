@@ -16,10 +16,10 @@ import CloseIcon from "@material-ui/icons/Close";
 import UnfoldMore from "@material-ui/icons/UnfoldMore";
 import ChatIcon from "@material-ui/icons/Chat";
 // Components / Utilities
-import MyButton from "../util/MyButton";
+import MyButton from "../../util/MyButton";
 import LikeButton from "./LikeButton";
 // Redux
-import { getScream } from "../redux/actions/dataAction";
+import { getScream } from "../../redux/actions/dataAction";
 
 const styles = (theme) => ({
   ...theme.spreadThis,
