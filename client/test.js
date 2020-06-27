@@ -12,11 +12,13 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 // MUI Icon Stuff
 import ChatIcon from "@material-ui/icons/Chat";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 // Utilities/Components
 import MyButton from "../util/MyButton";
 import DeleteScream from "./DeleteScream";
 import ScreamDialog from "./ScreamDialog";
-import LikeButton from "./LikeButton";
+import { LikeButton } from "./LikeButton";
 
 const styles = {
   card: {
