@@ -18,15 +18,12 @@ import ChatIcon from "@material-ui/icons/Chat";
 // Components / Utilities
 import MyButton from "../../util/MyButton";
 import LikeButton from "./LikeButton";
+import Comments from "./Comments";
 // Redux
 import { getScream } from "../../redux/actions/dataAction";
 
 const styles = (theme) => ({
   ...theme.spreadThis,
-  invisibleSeparator: {
-    border: "none",
-    margin: 4,
-  },
   profileImage: {
     width: 200,
     height: 200,
@@ -75,6 +72,7 @@ class ScreamDialog extends Component {
         commentCount,
         userImage,
         userHandle,
+        comments,
       },
       UI: { loading },
     } = this.props;
@@ -110,6 +108,8 @@ class ScreamDialog extends Component {
           </MyButton>
           <span>{commentCount} Comments</span>
         </Grid>
+        <hr className={classes.visibleSeparator} />
+        <Comments comments={comments} />
       </Grid>
     );
 
